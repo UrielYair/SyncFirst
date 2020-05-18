@@ -4,12 +4,14 @@
 
 h1 {
     text-align: center;
-    color: #dc3545;
+    color: #f43636;
+    text-shadow: 1px 1px #b44848;
 }
 
 .card {
-    border: solid #F44336 !important;
+    color: #615f5f !important;
     border-radius: 10px !important;
+    box-shadow: 4px 5px 10px 1px #bfacac;
 }
 
 #content {
