@@ -10,9 +10,9 @@ class Person(models.Model):
 
 
 class Incident(models.Model):
-    main_person = models.ForeignKey(Person)
-    spouse = models.ForeignKey(Person)
-    date = models.DateField(auto_add_now=True)
+    main_person = models.ForeignKey(Person, related_name="incidents_reported_by")
+    spouse = models.ForeignKey(Person, related_name="incidents_reported_about")
+    date = models.DateField()
     # Consider making this a select within given options (valid organizations)
     organization = models.CharField(max_length=30)
     description = models.TextField(max_length=120)
