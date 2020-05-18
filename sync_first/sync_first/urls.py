@@ -19,6 +19,6 @@ from sync_first_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/get_at_risk/', views.get_at_high_risk),
-    url(r'^api/get_a_threat/', views.get_might_be_a_threat),
+    url(r'^get_at_risk/', views.get_people_who_might_be_at_risk),
+    url(r'^get_a_threat/', views.get_people_who_might_be_a_threat),
 ]

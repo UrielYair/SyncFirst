@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SyncFirst</title>
+</head>
+<body>
+    <h1>אנשים שעלולים להיות בסיכון:</h1>
+    {% for person in people %}
+    <div>
+        <p>תעודת זהות:</p>
+        <p>{{person.person}}</p>
+        <p>מספר מקרים:</p>
+        <p>{{person.number_of_incidents}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
