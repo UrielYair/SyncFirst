@@ -1,2 +1,6 @@
 .idea/
 venv/
+
+sync_first/db.sqlite3
+
+*.pyc
