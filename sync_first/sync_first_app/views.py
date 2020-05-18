@@ -13,9 +13,10 @@ def get_at_high_risk(request):
     at_risk = []
     for person in all_people:
         if is_at_risk(person):
-            at_risk.append(person)
+            at_risk.append({"person": person.identification,
+                            "number_of_events": len(person.incidents_reported_by.all())})
 
-    return HttpResponse(serializers.serialize('json', at_risk), content_type="text/json-comment-filtered")
+    return JsonResponse(at_risk, safe=False)
 
 
 def get_might_be_a_threat(request):
@@ -23,6 +24,7 @@ def get_might_be_a_threat(request):
     a_threat = []
     for person in all_people:
         if is_a_threat(person):
-            a_threat.append(person)
+            a_threat.append({"person": person.identification,
+                            "number_of_events": len(person.incidents_reported_about.all())})
 
-    return HttpResponse(serializers.serialize('json', a_threat), content_type="text/json-comment-filtered")
+    return JsonResponse(a_threat, safe=False)
