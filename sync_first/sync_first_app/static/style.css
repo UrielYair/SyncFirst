@@ -11,3 +11,7 @@ h1 {
     border: solid #F44336 !important;
     border-radius: 10px !important;
 }
+
+#content {
+    margin-top: 80px;
+}

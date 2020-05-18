@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SyncFirst</title>
-    <link rel="stylesheet" href="/static/style.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body dir="rtl">
+{% extends "base.html" %}
+{% block content %}
 <h1>אנשים שעלולים להיות בסיכון:</h1>
 <div class="card-columns">
-{% for person in people %}
+    {% for person in people %}
     <div class="card bg-light">
         <div class="card-body text-center">
             <p class="card-text">תעודת זהות: {{person.person}}</p>
             <p class="card-text">מספר מקרים: {{person.number_of_incidents}}</p>
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}
