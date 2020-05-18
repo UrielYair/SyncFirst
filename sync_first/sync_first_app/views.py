@@ -12,4 +12,4 @@ def get_people_who_might_be_at_risk(request):
 
 
 def get_people_who_might_be_a_threat(request):
-    return render(request, 'templates/at_risk.html', {"people": get_at_high_risk()})
+    return render(request, 'a_threat.html', {"people": get_might_be_a_threat()})
