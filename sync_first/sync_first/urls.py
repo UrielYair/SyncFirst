@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from sync_first_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^get_at_risk/', views.get_at_high_risk),
+    url(r'^get_a_threat/', views.get_might_be_a_threat),
 ]
