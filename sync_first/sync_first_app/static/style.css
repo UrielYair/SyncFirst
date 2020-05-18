@@ -1,0 +1,13 @@
+.card-columns {
+    margin: 20px 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #dc3545;
+}
+
+.card {
+    border: solid #F44336 !important;
+    border-radius: 10px !important;
+}
