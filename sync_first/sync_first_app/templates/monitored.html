@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<script src="/static/monitored.js"></script>
 <h1>אירועים עבור אנשים שנמצאים תחת מעקב:</h1>
 <div class="card-columns">
     {% for incident in incidents %}
-    <div class="card bg-light">
+    <div class="card bg-light" id="inc-{{incident.id}}">
         <div class="card-header">
-            <button class="btn btn-primary">סמן כטופל</button>
+            <button class="btn btn-primary" onclick="markAsViewed({{incident.id}})">סמן כטופל</button>
         </div>
         <div class="card-body text-center">
             <p class="card-text">תעודת זהות מתלוננ/ת: {{incident.main_person.identification}}</p>

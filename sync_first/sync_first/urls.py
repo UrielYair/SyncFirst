@@ -19,7 +19,8 @@ from sync_first_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^get_at_risk/', views.get_people_who_might_be_at_risk),
-    url(r'^get_a_threat/', views.get_people_who_might_be_a_threat),
-    url(r'^get_monitored/', views.get_events_for_monitored_person),
+    url(r'^at_risk/', views.get_people_who_might_be_at_risk),
+    url(r'^a_threat/', views.get_people_who_might_be_a_threat),
+    url(r'^monitored/', views.get_events_for_monitored_person),
+    url(r'^api/mark_event_as_viewed', views.    mark_event_as_viewed),
 ]

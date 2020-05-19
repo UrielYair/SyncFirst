@@ -5,6 +5,8 @@ from django.shortcuts import render
 from .alerts import get_at_high_risk, get_might_be_a_threat, get_monitored_people, get_events_for_people
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+from .models import Person, Incident
 
 
 def get_people_who_might_be_at_risk(request):
@@ -21,3 +23,13 @@ def get_events_for_monitored_person(request):
     # Filter out viewed event. Later we might want to show it in an archive section.
     events = events.filter(was_viewed=False)
     return render(request, 'monitored.html', {"incidents": events})
+
+
+@csrf_exempt
+def mark_event_as_viewed(request):
+    if request.method == 'POST':
+        event_id = int(request.POST['event_id'])
+    event_obj = Incident.objects.get(id=event_id)
+    event_obj.was_viewed = True
+    event_obj.save()
+    return HttpResponse(status=200)
