@@ -9,28 +9,28 @@
 
     <form action="" method="POST">
         <div class="form-group text-primary">
-            <label for="id1">Enter ID number of main person involved: (only numbers)</label><br>
+            <label for="id1">הזן תעודת זהות של אדם ראשי (מספרים בלבד)</label><br>
             <input class="form-control" type="text" id="id1" minlength="9" maxlength="9" 
             placeholder="123456789" pattern="[0-9]{9}" required name="main_person">
         </div>
 
         <div class="form-group text-primary">
-            <label for="id2">Enter your spouse's ID number: (only numbers)</label><br>
+            <label for="id2">הזן תעודת של אדם משני (מספרים בלבד)</label><br>
             <input class="form-control" type="text" id="id2" minlength="9" maxlength="9" 
             placeholder="123456789" pattern="[0-9]{9}" required name="spouse">
         </div>
 
         <div class="form-group text-primary">
-            <label for="description">Description</label>
+            <label for="description">תיאור המקרה</label>
             <input class="form-control" type="text" id="description" placeholder="Write a short description of the incident" required name="description">
         </div>
 
         <div class="form-group text-primary">
-            <label for="description">Reporter</label>
+            <label for="description">תעודת זהות של המדווח</label>
             <input class="form-control" type="text" id="description" placeholder="name of the reporter" name="reporter">
         </div>
 
-        <button class="btn btn-primary btn-block" type="submit" id="submit">Submit</button>
+        <button class="btn btn-primary btn-block" type="submit" id="submit">שמור במערכת</button>
         
     </form>
 </div>
