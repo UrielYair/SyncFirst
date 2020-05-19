@@ -3,7 +3,10 @@ from __future__ import unicode_literals
 from .models import Incident, Person
 
 from django.shortcuts import render
-from django.http import HttpResponse,Http404
+from .alerts import get_at_high_risk, get_might_be_a_threat
+from django.http import JsonResponse, HttpResponse, Http404
+from django.core import serializers
+
 
 # Create your views here.
 def show_new_incident_page(request):
@@ -54,3 +57,12 @@ def store_new_incident(request, incident_to_save):
         reporter: incident_to_save.reporter
     })    
     inc.save()
+    
+
+def get_people_who_might_be_at_risk(request):
+    return render(request, 'at_risk.html', {"people": get_at_high_risk()})
+
+
+def get_people_who_might_be_a_threat(request):
+    return render(request, 'a_threat.html', {"people": get_might_be_a_threat()})
+

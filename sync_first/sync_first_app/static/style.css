@@ -1,0 +1,28 @@
+.card-columns {
+    margin: 20px 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #f43636;
+    text-shadow: 1px 1px #b44848;
+}
+
+.card {
+    color: #615f5f !important;
+    border-radius: 10px !important;
+    box-shadow: 4px 5px 10px 1px #bfacac;
+}
+
+#content {
+    margin-top: 80px;
+}
+
+#logoImg {
+    max-height: 50px;
+    border-radius: 20px;
+}
+
+nav.navbar-dark {
+    background-color: #3c3e79!important;
+}
