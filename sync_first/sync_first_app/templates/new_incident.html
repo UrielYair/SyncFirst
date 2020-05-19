@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>הזן/י פרטי אירוע חדש:</h1>
+<form action="" method="POST">
+        <div class="form-group text-primary">
+            <label for="id1" class="float-right">תעודת זהות מתלונן/ת: </label><br>
+            <input class="form-control" type="text" id="id1" minlength="9" maxlength="9"
+            placeholder="הכנס/י כאן ת.ז." pattern="[0-9]{9}" required name="main_person">
+        </div>
+
+        <div class="form-group text-primary">
+            <label for="id2" class="float-right">תעודת זהות בן/בת זוג: </label><br>
+            <input class="form-control" type="text" id="id2" minlength="9" maxlength="9"
+            placeholder="הכנס/י כאן ת.ז." pattern="[0-9]{9}" required name="spouse">
+        </div>
+
+        <div class="form-group text-primary">
+            <label for="description" class="float-right">תיאור המקרה: </label>
+            <input class="form-control" type="text" id="description" placeholder="תיאור קצר של פרטי המקרה" required name="description">
+        </div>
+
+        <div class="form-group text-primary">
+            <label for="reporter" class="float-right">תעודת זהות מדווח</label>
+            <input class="form-control" type="text" id="reporter" placeholder="הכנס/י כאן ת.ז." name="reporter">
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" id="submit">שמור במערכת</button>
+
+    </form>
+{% endblock %}

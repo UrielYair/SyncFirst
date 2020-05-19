@@ -7,6 +7,7 @@ from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from .models import Person, Incident, STATUS_OPTIONS
+import datetime
 
 
 def get_people_who_might_be_at_risk(request):
@@ -23,6 +24,10 @@ def get_events_for_monitored_person(request):
     # Filter out viewed event. Later we might want to show it in an archive section.
     events = events.filter(was_viewed=False)
     return render(request, 'monitored.html', {"incidents": events})
+
+
+def get_new_incident_form(request):
+    return render(request, "new_incident.html", {})
 
 
 @csrf_exempt
@@ -47,6 +52,7 @@ def change_person_status(request):
 
         person_obj = Person.objects.get(id=person_id)
         person_obj.status = status
+        person_obj.last_update = datetime.datetime.today()
         person_obj.save()
         return HttpResponse(status=200)
     else:
