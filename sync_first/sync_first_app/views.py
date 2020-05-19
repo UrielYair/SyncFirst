@@ -33,19 +33,19 @@ def search_person(request):
     return render(request, 'search.html')
 
 def get_incidents_by_person_id(request, person_id_number):
-    incidents_lists = []
-    try:
-        # TODO: fix get incidents.
-        incidents_lists.append(Incident.objects.get(main_person = person_id_number))
-        incidents_lists.append(Incident.objects.get(spouse = person_id_number))
     
-    except Incident.DoesNotExist:
-        raise Http404("Incident not Found.")
-
+    incidents_lists = []
+    incidents = Incident.objects.all()
+    
+    for incident in incidents:
+        if incident.main_person == person_id_number or incident.spouse == person_id_number:
+            incidents_lists.append(incident)
+    
     context={
         'person_id': person_id_number,
-        'incidents': Set(incidents_lists)
+        'incidents': incidents_lists
     }
+    
     return render(request, 'all_incidents_by_id.html', context)
 
 def store_new_incident(request, incident_to_save):
