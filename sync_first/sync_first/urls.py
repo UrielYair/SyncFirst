@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from sync_first_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^search', views.show_search_page),
+    url(r'^new', views.show_new_incident_page),
+    url(r'^incidents/([0-9]{9})', views.get_incidents_by_person_id)
 ]
