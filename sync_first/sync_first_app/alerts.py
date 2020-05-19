@@ -1,4 +1,5 @@
 from .models import Person, Incident
+from django.db.models.query import QuerySet
 
 MINIMAL_NUMBER_OF_INCIDENTS = 2
 
@@ -47,3 +48,18 @@ def get_might_be_a_threat():
                              "number_of_incidents": len(person.incidents_reported_about.all())})
 
     return a_threat
+
+
+def get_monitored_people():
+    return Person.objects.filter(status="pending")
+
+
+def get_events_for_people(people):
+    """
+    Get all the events associated with given people.
+    """
+    events = QuerySet(model=Incident)
+    for person in people:
+        events = events | person.incidents_reported_about.all() | person.incidents_reported_by.all()
+
+    return events

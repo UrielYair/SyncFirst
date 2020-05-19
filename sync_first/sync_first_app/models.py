@@ -11,7 +11,7 @@ STATUS_OPTIONS = [("pending", "pending"), ("monitored", "monitored"), ("irreleva
 class Person(models.Model):
     # Should by official id (tz)
     identification = models.CharField(max_length=9)
-    status = models.CharField(max_length=10, choices=STATUS_OPTIONS, default=STATUS_OPTIONS[0])
+    status = models.CharField(max_length=10, choices=STATUS_OPTIONS, default=STATUS_OPTIONS[0][0])
     last_update = models.DateField(default=datetime.date.today())
 
 

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>אירועים עבור אנשים שנמצאים תחת מעקב:</h1>
+<div class="card-columns">
+    {% for incident in incidents %}
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <p class="card-text">תעודת זהות מתלוננ/ת: {{incident.main_person.identification}}</p>
+            <p class="card-text">תעודת זהות בן/בת זוג: {{incident.spouse.identification}}</p>
+            <p class="card-text">תאריך: {{incident.date}}</p>
+            <p class="card-text">ארגון: {{incident.organization}}</p>
+            <p class="card-text">תיאור המקרה: {{incident.description}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
