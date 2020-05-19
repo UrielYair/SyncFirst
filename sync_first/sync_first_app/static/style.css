@@ -17,3 +17,12 @@ h1 {
 #content {
     margin-top: 80px;
 }
+
+#logoImg {
+    max-height: 50px;
+    border-radius: 20px;
+}
+
+nav.navbar-dark {
+    background-color: #3c3e79!important;
+}
