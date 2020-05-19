@@ -6,7 +6,7 @@ from .alerts import get_at_high_risk, get_might_be_a_threat, get_monitored_peopl
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from .models import Person, Incident
+from .models import Person, Incident, STATUS_OPTIONS
 
 
 def get_people_who_might_be_at_risk(request):
@@ -38,11 +38,15 @@ def mark_event_as_viewed(request):
 
 
 @csrf_exempt
-def mark_person_as_monitored(request):
+def change_person_status(request):
     if request.method == 'POST':
+        # Get user data and validate it
         person_id = int(request.POST['person_id'])
+        status = request.POST['status']
+        assert (status, status) in STATUS_OPTIONS
+
         person_obj = Person.objects.get(id=person_id)
-        person_obj.status = "monitored"
+        person_obj.status = status
         person_obj.save()
         return HttpResponse(status=200)
     else:

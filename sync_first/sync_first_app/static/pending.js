@@ -1,7 +1,17 @@
-function markAsMonitored(personID) {
-  $.post( "/api/mark_person_as_monitored", { person_id: personID })
+function changePersonStatus(personID, status, message) {
+  $.post("/api/change_person_status", { person_id: personID, status: status })
   .done(function( data ) {
-    alert( "הועבר לטיפול בהצלחה" );
+    alert(message);
     document.getElementById("per-" + personID).remove();
   });
+}
+
+function markAsMonitored(personID) {
+  changePersonStatus(personID, "monitored", "הועבר לטיפול בהצלחה" );
+}
+function markAsRefuse(personID) {
+  changePersonStatus(personID, "refuse", "סומן כסירוב" );
+}
+function markAsIrrelevant(personID) {
+  changePersonStatus(personID, "irrelevant", "סומן כלא רלוונטי" );
 }

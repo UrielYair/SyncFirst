@@ -7,8 +7,8 @@
     <div class="card bg-light" id="per-{{person.id}}">
         <div class="card-header">
             <button class="btn btn-primary" onclick="markAsMonitored({{person.id}})">העבר לטיפול</button>
-            <button class="btn btn-primary">לא רלוונטי</button>
-            <button class="btn btn-primary">סירב/ה</button>
+            <button class="btn btn-primary" onclick="markAsIrrelevant({{person.id}})">לא רלוונטי</button>
+            <button class="btn btn-primary" onclick="markAsRefuse({{person.id}})">סירב/ה</button>
         </div>
         <div class="card-body text-center">
             <p class="card-text">תעודת זהות: {{person.person}}</p>

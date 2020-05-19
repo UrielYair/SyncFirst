@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^a_threat/', views.get_people_who_might_be_a_threat),
     url(r'^monitored/', views.get_events_for_monitored_person),
     url(r'^api/mark_event_as_viewed', views.mark_event_as_viewed),
-    url(r'^api/mark_person_as_monitored', views.mark_person_as_monitored),
+    url(r'^api/change_person_status', views.change_person_status),
 ]
