@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^search', views.show_search_page),
     url(r'^new', views.show_new_incident_page),
-    url(r'^incidents/([0-9]{9})', views.get_incidents_by_person_id)
+    url('^incidents/([0-9]{9})', views.get_incident_by_id),
+    url('^incidents/', views.all_incidents)
 ]
