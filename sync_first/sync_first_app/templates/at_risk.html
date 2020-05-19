@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>אנשים שעלולים להיות בסיכון:</h1>
+<div class="card-columns">
+    {% for person in people %}
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <p class="card-text">תעודת זהות: {{person.person}}</p>
+            <p class="card-text">מספר מקרים: {{person.number_of_incidents}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
