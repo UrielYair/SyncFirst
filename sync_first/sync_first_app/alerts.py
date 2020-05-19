@@ -28,8 +28,16 @@ def is_a_threat(person):
         return False
 
 
+def get_monitored_people():
+    return Person.objects.filter(status="monitored")
+
+
+def get_pending_people():
+    return Person.objects.filter(status="pending")
+
+
 def get_at_high_risk():
-    all_people = Person.objects.all()
+    all_people = get_pending_people()
     at_risk = []
     for person in all_people:
         if is_at_risk(person):
@@ -40,7 +48,7 @@ def get_at_high_risk():
 
 
 def get_might_be_a_threat():
-    all_people = Person.objects.all()
+    all_people = get_pending_people()
     a_threat = []
     for person in all_people:
         if is_a_threat(person):
@@ -48,10 +56,6 @@ def get_might_be_a_threat():
                              "number_of_incidents": len(person.incidents_reported_about.all())})
 
     return a_threat
-
-
-def get_monitored_people():
-    return Person.objects.filter(status="pending")
 
 
 def get_events_for_people(people):

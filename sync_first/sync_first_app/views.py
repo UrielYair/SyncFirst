@@ -18,4 +18,6 @@ def get_people_who_might_be_a_threat(request):
 def get_events_for_monitored_person(request):
     monitored_people = get_monitored_people()
     events = get_events_for_people(monitored_people)
+    # Filter out viewed event. Later we might want to show it in an archive section.
+    events = events.filter(was_viewed=False)
     return render(request, 'monitored.html', {"incidents": events})
