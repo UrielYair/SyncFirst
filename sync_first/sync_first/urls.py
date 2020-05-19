@@ -19,7 +19,7 @@ from sync_first_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^search', views.show_search_page),
+    url(r'^search', views.search_person),
     url(r'^new', views.show_new_incident_page),
     url('^incidents/([0-9]{9})', views.get_incident_by_id),
     url('^incidents/', views.all_incidents)

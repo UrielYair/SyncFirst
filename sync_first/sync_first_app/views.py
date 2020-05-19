@@ -26,7 +26,7 @@ def get_incident_by_id(request, incident_id):
     return render(request, "incident.html", context)
 
 
-def show_search_page(request):
+def search_person(request):
     return render(request, 'search.html')
 
 def get_incidents_by_person_id(request, person_id_number):
