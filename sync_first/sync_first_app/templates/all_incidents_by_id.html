@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-1 text-center">תוצאות</h1>
+    </div>
+    <h1 class="text-center m-5"><span id="id">{{incident_id}}</span> תוצאות עבור תעודת זהות מספר</h1>
+    <table class="table table-bordered">
+        <thead class="table-active">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">main_person</th>
+            <th scope="col">spouse</th>
+            <th scope="col">date</th>
+            <th scope="col">description</th>
+            <th scope="col">organization</th>
+            <th scope="col">reporter</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          {% for incident in incidents %}
+          <tr>
+            <th scope="row"></th>
+            <td>{{incident.main_person}}</td>
+            <td>{{incident.spouse}}</td>
+            <td>{{incident.date}}</td>
+            <td>{{incident.description}}</td>
+            <td>{{incident.organization}}</td>
+            <td>{{incident.reporter}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}
