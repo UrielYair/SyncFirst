@@ -23,4 +23,4 @@ class Incident(models.Model):
     reporter = models.CharField(max_length=9, null=True, blank=True)
 
     def __str__(self):
-        return 'Incident(main_person= '+str(self.main_person) +', spouse= '+ str(self.spouse) +', date= '+ self.date.strftime("%m/%d/%Y, %H:%M:%S") +', organization= '+self.organization+', description= '+ self.description + ', reporter= '+self.reporter + ')'
+        return 'Incident(main_person= '+str(self.main_person) +', spouse= '+ str(self.spouse) +', date= '+ self.date.strftime("%m/%d/%Y) +', organization= '+self.organization+', description= '+ self.description + ', reporter= '+self.reporter + ')'
