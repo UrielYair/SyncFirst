@@ -35,6 +35,7 @@ def search_person(request):
 def get_incidents_by_person_id(request, person_id_number):
     incidents_lists = []
     try:
+        # TODO: fix get incidents.
         incidents_lists.append(Incident.objects.get(main_person = person_id_number))
         incidents_lists.append(Incident.objects.get(spouse = person_id_number))
     
@@ -43,7 +44,7 @@ def get_incidents_by_person_id(request, person_id_number):
 
     context={
         'person_id': person_id_number,
-        'list_of_incidents': Set(incidents_lists)
+        'incidents': Set(incidents_lists)
     }
     return render(request, 'all_incidents_by_id.html', context)
 
