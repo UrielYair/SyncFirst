@@ -34,6 +34,17 @@ def search_incidents_by_id(request):
     return render(request, "search_by_id.html", {})
 
 
+def get_incidents_by_id(request, person_id):
+    person = Person.objects.get(identification=person_id)
+    incidents = person.incidents_reported_about.all() | person.incidents_reported_by.all()
+    # Transform to dict, should be a class method
+    incidents = [{'main_id': incident.main_person.identification,
+                  'spouse_id': incident.spouse.identification,
+                  'date': incident.date, 'organization': incident.organization,
+                  'description': incident.description} for incident in incidents]
+    return JsonResponse(incidents, safe=False)
+
+
 @csrf_exempt
 def mark_event_as_viewed(request):
     if request.method == 'POST':

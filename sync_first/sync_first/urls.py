@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^monitored/', views.get_events_for_monitored_person),
     url(r'^report_new/', views.get_new_incident_form),
     url(r'^incidents_by_id/', views.search_incidents_by_id),
+    url(r'^api/get_incidents_by_id/(?P<person_id>\d+)/$', views.get_incidents_by_id),
     url(r'^api/mark_event_as_viewed', views.mark_event_as_viewed),
     url(r'^api/change_person_status', views.change_person_status),
 ]
