@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron" style="height:300px;">
+    <h1 class="display-1 text-center">הזן תעודת זהות לבדיקה</h1>
+</div>
+
+<div class="container">
+    
+    <form action="" method="POST" class="m-5">
+        <div class="form-group text-primary">
+            <label for="id1">Enter an ID number: (only numbers)</label><br>
+            <input class="form-control" type="text" id="id1" minlength="9" maxlength="9" 
+            placeholder="123456789" pattern="[0-9]{9}" required name="id">
+        </div>
+        <button class="btn btn-primary btn-block" type="submit" id="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

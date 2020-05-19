@@ -6,4 +6,3 @@ from .models import Person, Incident
 
 admin.site.register(Person)
 admin.site.register(Incident)
-
