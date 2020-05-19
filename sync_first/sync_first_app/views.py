@@ -29,7 +29,21 @@ def get_events_for_monitored_person(request):
 def mark_event_as_viewed(request):
     if request.method == 'POST':
         event_id = int(request.POST['event_id'])
-    event_obj = Incident.objects.get(id=event_id)
-    event_obj.was_viewed = True
-    event_obj.save()
-    return HttpResponse(status=200)
+        event_obj = Incident.objects.get(id=event_id)
+        event_obj.was_viewed = True
+        event_obj.save()
+        return HttpResponse(status=200)
+    else:
+        return HttpResponse(status=403)
+
+
+@csrf_exempt
+def mark_person_as_monitored(request):
+    if request.method == 'POST':
+        person_id = int(request.POST['person_id'])
+        person_obj = Person.objects.get(id=person_id)
+        person_obj.status = "monitored"
+        person_obj.save()
+        return HttpResponse(status=200)
+    else:
+        return HttpResponse(status=403)

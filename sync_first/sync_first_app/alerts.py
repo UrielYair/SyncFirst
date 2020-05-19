@@ -42,7 +42,8 @@ def get_at_high_risk():
     for person in all_people:
         if is_at_risk(person):
             at_risk.append({"person": person.identification,
-                            "number_of_incidents": len(person.incidents_reported_by.all())})
+                            "number_of_incidents": len(person.incidents_reported_by.all()),
+                            "id": person.id})
 
     return at_risk
 
@@ -53,7 +54,8 @@ def get_might_be_a_threat():
     for person in all_people:
         if is_a_threat(person):
             a_threat.append({"person": person.identification,
-                             "number_of_incidents": len(person.incidents_reported_about.all())})
+                             "number_of_incidents": len(person.incidents_reported_about.all()),
+                             "id": person.id})
 
     return a_threat
 

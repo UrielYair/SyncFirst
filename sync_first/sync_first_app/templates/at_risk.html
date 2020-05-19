@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+<script src="/static/pending.js"></script>
 <h1>אנשים שעלולים להיות בסיכון:</h1>
 <div class="card-columns">
     {% for person in people %}
-    <div class="card bg-light">
+    <div class="card bg-light" id="per-{{person.id}}">
+        <div class="card-header">
+            <button class="btn btn-primary" onclick="markAsMonitored({{person.id}})">העבר לטיפול</button>
+            <button class="btn btn-primary">לא רלוונטי</button>
+            <button class="btn btn-primary">סירב/ה</button>
+        </div>
         <div class="card-body text-center">
             <p class="card-text">תעודת זהות: {{person.person}}</p>
             <p class="card-text">מספר מקרים: {{person.number_of_incidents}}</p>
