@@ -4,6 +4,11 @@
 <div class="card-columns">
     {% for person in people %}
     <div class="card bg-light">
+        <div class="card-header">
+            <button class="btn btn-primary" onclick="markAsMonitored({{person.id}})">העבר לטיפול</button>
+            <button class="btn btn-primary" onclick="markAsIrrelevant({{person.id}})">לא רלוונטי</button>
+            <button class="btn btn-primary" onclick="markAsRefuse({{person.id}})">סירב/ה</button>
+        </div>
         <div class="card-body text-center">
             <p class="card-text">תעודת זהות: {{person.person}}</p>
             <p class="card-text">מספר מקרים: {{person.number_of_incidents}}</p>
