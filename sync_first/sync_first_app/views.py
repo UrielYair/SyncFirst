@@ -30,6 +30,10 @@ def get_new_incident_form(request):
     return render(request, "new_incident.html", {})
 
 
+def search_incidents_by_id(request):
+    return render(request, "search_by_id.html", {})
+
+
 @csrf_exempt
 def mark_event_as_viewed(request):
     if request.method == 'POST':

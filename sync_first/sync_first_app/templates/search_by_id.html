@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>חפש/י על פי תעודת זהות:</h1>
+<div class="container align-items-center">
+    <form action="" method="POST" class="form-inline justify-content-center">
+        <input class="form-control mb-2 mr-sm-2" type="text" id="id1" minlength="9" maxlength="9"
+               placeholder="הכנס/י ת.ז." pattern="[0-9]{9}" required name="id">
+        <button class="btn btn-primary mb-2 mr-sm-2" type="submit" id="submit">חיפוש</button>
+    </form>
+</div>
+{% endblock %}
